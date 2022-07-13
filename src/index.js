@@ -4,12 +4,31 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { legacy_createStore as createStore} from 'redux'
+import { Provider } from 'react-redux';
+
+const store = createStore(formReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+//create class component
+class HelloComponent2 extends React.Component {
+  render() {
+    return (<h1>สวัสดี Component2</h1>)
+  }
+}
+
+// root.render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>
+// );
+
 root.render(
-  <React.StrictMode>
+  <>
     <App />
-  </React.StrictMode>
-);
+  </>
+)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
